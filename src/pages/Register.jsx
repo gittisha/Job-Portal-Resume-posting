@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { User, Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { Link } from "react-router-dom";
+
 
 // ─────────────────────────────────────────────────────────────
 // AccessTerminalRegister
@@ -58,16 +60,7 @@ export default function AccessTerminalRegister({ onRegister }) {
     setStatus("authenticating");
     setErrorMsg("");
     try {
-      // ── Replace with your Spring Boot endpoint ──────────────
-      // const res = await fetch("http://localhost:8080/api/auth/register", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({ username, email, password }),
-      // });
-      // if (!res.ok) throw new Error("Registration failed");
-      // const data = await res.json();
-      // onRegister?.(data);
-
+ 
       await new Promise((resolve) => (timerRef.current = setTimeout(resolve, 1800)));
       setStatus("success");
     } catch {
@@ -203,7 +196,7 @@ export default function AccessTerminalRegister({ onRegister }) {
 
           <div className="at-footer-row">
             <span>ALREADY REGISTERED?</span>
-            <a href="#login" className="at-link">RETURN TO LOGIN</a>
+            <Link to="/" className="at-link">RETURN TO LOGIN</Link>
           </div>
         </div>
 
@@ -348,7 +341,7 @@ const css = `
 }
 .at-row-input::placeholder { color: rgba(255,255,255,0.25); }
 .at-row-input:disabled { opacity: 0.5; }
-.at-row-eye { background: transparent; border: none; color: rgba(255,255,255,0.45); cursor: pointer; display: flex; }
+.at-row-eye { background: transparent; border: none; color: rgba(255,255,255,0.45); display: flex; }
 .at-row-eye:hover { color: #00dceb; }
 
 .at-connect {
@@ -364,7 +357,6 @@ const css = `
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 3px;
-  cursor: pointer;
   transition: background 0.15s, box-shadow 0.15s;
 }
 .at-connect:hover:not(:disabled) { background: rgba(0,220,235,0.16); box-shadow: 0 0 16px rgba(0,220,235,0.25); }

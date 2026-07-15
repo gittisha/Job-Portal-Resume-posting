@@ -44,16 +44,6 @@ export default function AccessTerminalLogin({ onLogin }) {
     setStatus("authenticating");
     setErrorMsg("");
     try {
-      // ── Replace with your Spring Boot endpoint ──────────────
-      // const res = await fetch("http://localhost:8080/api/auth/login", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({ username, password }),
-      // });
-      // if (!res.ok) throw new Error("Invalid credentials");
-      // const data = await res.json();
-      // onLogin?.(data);
-
       await new Promise((resolve) => (timerRef.current = setTimeout(resolve, 1600)));
       setStatus("success");
     } catch {
@@ -155,7 +145,7 @@ export default function AccessTerminalLogin({ onLogin }) {
 
           <div className="at-footer-row">
             <span>NO CREDENTIALS?</span>
-            <a href="/register" className="at-link">REGISTER NODE</a>
+            <a href="register" className="at-link">REGISTER NODE</a>
           </div>
         </div>
 
@@ -317,7 +307,6 @@ const css = `
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 3px;
-  cursor: pointer;
   transition: background 0.15s, box-shadow 0.15s;
 }
 .at-connect:hover:not(:disabled) { background: rgba(0,220,235,0.16); box-shadow: 0 0 16px rgba(0,220,235,0.25); }

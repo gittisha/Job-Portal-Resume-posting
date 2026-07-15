@@ -108,3 +108,25 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+/* Default cursor across the app */
+body,
+.at-row-label {
+  cursor: url('/cursors/arrow.cur') 4 4, auto;
+}
+
+/* Clickable elements */
+.at-connect,
+.at-logout,
+.at-link,
+.at-eyebrow,
+.at-button,
+.at-row-eye,
+button {
+  cursor: url('/cursors/link.cur') 8 8, pointer;
+}
+
+/* Text inputs */
+.at-row-input {
+  cursor: url('/cursors/pen.cur') 8 12, text;
+}
